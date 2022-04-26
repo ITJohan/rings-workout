@@ -18,19 +18,24 @@ h1 {
 }
 
 form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
-label {
+form section {
+  background-color: beige;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 16px;
+}
+
+form section label {
   grid-column: 1 / 4;
 }
 
-span {
-  grid-column: 1 / 3;
-}
-
-button {
-  grid-column: 3 / 4;
+form footer {
+  display: flex;
+  justify-content: space-between;
 }
