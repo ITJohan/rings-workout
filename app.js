@@ -20,7 +20,6 @@ const generateWorkout = () => {
   const workouts = JSON.parse(localStorage.getItem('workouts') ?? '[]');
 
   if (workouts.length > 1) {
-    console.log('a');
     const previousWorkout = workouts[workouts.length - 2];
 
     for (const [attribute, value] of Object.entries(previousWorkout)) {
@@ -28,7 +27,7 @@ const generateWorkout = () => {
       document.getElementById(attribute).value = value;
     }
   } else if (workouts.length > 0) {
-    console.log('b');
+    form.reset();
     form.setAttribute('value', 'B');
   }
 };
