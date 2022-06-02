@@ -15,25 +15,26 @@
     <h1>Calisthenics🤸‍♂️</h1>
     <form>
       <section>
-        <input id="legName" type="text" placeholder="Leg exercise">
+        <input id="legName" name="legName" type="text" placeholder="Leg exercise" required>
         <input id="leg1" name="leg1" type="number" min="0" max="10" step="1" placeholder="0" required>
         <input id="leg2" name="leg2" type="number" min="0" max="10" step="1" placeholder="0" required>
         <input id="leg3" name="leg3" type="number" min="0" max="10" step="1" placeholder="0" required>
       </section>
       <section>
-        <input id="pushName" type="text" placeholder="Push exercise">
+        <input id="pushName" name="pushName" type="text" placeholder="Push exercise" required>
         <input id="push1" name="push1" type="number" min="0" max="10" step="1" placeholder="0" required>
         <input id="push2" name="push2" type="number" min="0" max="10" step="1" placeholder="0" required>
         <input id="push3" name="push3" type="number" min="0" max="10" step="1" placeholder="0" required>
       </section>
       <section>
-        <input id="pullName" type="text" placeholder="Pull exercise">
+        <input id="pullName" name="pullName" type="text" placeholder="Pull exercise" required>
         <input id="pull1" name="pull1" type="number" min="0" max="10" step="1" placeholder="0" required>
         <input id="pull2" name="pull2" type="number" min="0" max="10" step="1" placeholder="0" required>
         <input id="pull3" name="pull3" type="number" min="0" max="10" step="1" placeholder="0" required>
       </section>
       <footer>
         <span>Rest for 90 seconds</span>
+        <input id="type" name="type" type="text" value="A" hidden>
         <button type="submit">Finish</button>
       </footer>
     </form>
