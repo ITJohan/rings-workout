@@ -31,7 +31,7 @@ form section {
   padding: 16px;
 }
 
-form section label {
+form section input:first-child {
   grid-column: 1 / 4;
 }
 
