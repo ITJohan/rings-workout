@@ -28,7 +28,44 @@ const generateWorkout = () => {
     }
   } else if (workouts.length > 0) {
     form.reset();
-    form.setAttribute('value', 'B');
+  }
+
+  generateLog();
+};
+
+const generateLog = () => {
+  document.getElementById('log').innerHTML = '';
+  const workouts = JSON.parse(localStorage.getItem('workouts') ?? '[]');
+
+  for (const workout of workouts) {
+    const date = new Date(workout.date).toDateString();
+    const table = `
+      <h4>Workout ${date}</h4>
+      <table>
+        <tbody>
+          <tr>
+            <th>${workout.legName}</th>
+            <td>${workout.leg1}</td>
+            <td>${workout.leg2}</td>
+            <td>${workout.leg3}</td>
+          </tr>
+          <tr>
+            <th>${workout.pushName}</th>
+            <td>${workout.push1}</td>
+            <td>${workout.push2}</td>
+            <td>${workout.push3}</td>
+          </tr>
+          <tr>
+            <th>${workout.pullName}</th>
+            <td>${workout.pull1}</td>
+            <td>${workout.pull2}</td>
+            <td>${workout.pull3}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+    document.getElementById('log').innerHTML += table;
   }
 };
 
