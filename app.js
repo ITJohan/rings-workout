@@ -1,4 +1,7 @@
+const COOLDOWN = 90;
+
 const form = document.querySelector('form');
+const numberInputs = document.querySelectorAll('input[type="number"');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -15,6 +18,25 @@ form.addEventListener('submit', (e) => {
 
   generateWorkout();
 });
+
+let intervalRef;
+const timer = document.querySelector('time');
+
+const startCooldown = () => {
+  clearInterval(intervalRef);
+  timer.innerHTML = COOLDOWN;
+  intervalRef = setInterval(() => {
+    const currentTime = Number(timer.innerHTML);
+    if (currentTime === 0) return;
+    timer.innerHTML = currentTime - 1;
+  }, 1000);
+};
+
+for (const input of numberInputs) {
+  input.addEventListener('focusout', () => {
+    startCooldown();
+  });
+}
 
 const generateWorkout = () => {
   const workouts = JSON.parse(localStorage.getItem('workouts') ?? '[]');
