@@ -45,8 +45,15 @@ const generateWorkout = () => {
     const previousWorkout = workouts[workouts.length - 2];
 
     for (const [attribute, value] of Object.entries(previousWorkout)) {
-      if (attribute === 'date') continue;
-      document.getElementById(attribute).value = value;
+      if (attribute === 'date') {
+        continue;
+      }
+
+      if (attribute.includes('Name')) {
+        document.getElementById(attribute).value = value;
+      } else {
+        document.getElementById(attribute).placeholder = value;
+      }
     }
   } else if (workouts.length > 0) {
     form.reset();
