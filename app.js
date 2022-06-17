@@ -33,8 +33,10 @@ const startCooldown = () => {
 };
 
 for (const input of numberInputs) {
-  input.addEventListener('focusout', () => {
-    startCooldown();
+  input.addEventListener('focusout', (e) => {
+    if (e.target.value !== '') {
+      startCooldown();
+    }
   });
 }
 
